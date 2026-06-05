@@ -79,14 +79,15 @@ export function Navbar(): JSX.Element {
             </a>
           </div>
 
-          {/* Mobile menu button - Improved design */}
+          {/* Mobile menu button - Fixed design to prevent stretching */}
           <button
-            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50"
+            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50 bg-primary/10 backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
+            style={{ minWidth: '44px', minHeight: '44px' }} // Minimum touch target size
           >
-            <div className="w-6 h-5 flex flex-col justify-between">
+            <div className="w-5 h-5 flex flex-col justify-between">
               <span className={`w-full h-0.5 transition-transform duration-300 ${
                 scrolled ? 'bg-primary' : 'bg-white'
               } ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -101,7 +102,7 @@ export function Navbar(): JSX.Element {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay - Improved design */}
+      {/* Mobile Menu Overlay - Fixed design */}
       <div 
         className={`fixed inset-0 z-40 transition-all duration-300 md:hidden ${
           mobileMenuOpen 
@@ -115,10 +116,10 @@ export function Navbar(): JSX.Element {
           onClick={() => setMobileMenuOpen(false)}
         />
         
-        {/* Mobile menu panel - cleaner design */}
+        {/* Mobile menu panel - Fixed width to prevent stretching */}
         <div 
-          className={`absolute top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
-            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`absolute top-0 left-0 h-full w-4/5 max-w-xs bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+            mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
           <div className="flex flex-col h-full pt-6 pb-8">
@@ -131,6 +132,7 @@ export function Navbar(): JSX.Element {
                 className="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
+                style={{ minWidth: '44px', minHeight: '44px' }} // Minimum touch target size
               >
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

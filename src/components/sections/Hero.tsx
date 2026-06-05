@@ -23,52 +23,44 @@ const TriangleParticles = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Triangle particle system
+    // Simple line-based triangle system for crisp edges
     type Triangle = {
       x: number;
       y: number;
       size: number;
       speed: number;
-      rotation: number;
-      rotationSpeed: number;
       opacity: number;
     };
     
     const triangles: Triangle[] = [];
-    const triangleCount = Math.min(40, Math.floor(canvas.width * canvas.height / 20000));
+    const triangleCount = Math.min(30, Math.floor(canvas.width * canvas.height / 30000));
     
     // Initialize triangles
     for (let i = 0; i < triangleCount; i++) {
       triangles.push({
         x: Math.random() * (canvas.width / (window.devicePixelRatio || 1)),
         y: Math.random() * (canvas.height / (window.devicePixelRatio || 1)),
-        size: Math.random() * 30 + 10,
-        speed: Math.random() * 0.5 + 0.1,
-        rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.02,
-        opacity: Math.random() * 0.3 + 0.1
+        size: Math.random() * 25 + 15,
+        speed: Math.random() * 0.8 + 0.2,
+        opacity: Math.random() * 0.4 + 0.1
       });
     }
     
-    // Draw a crisp triangle
-    const drawTriangle = (x: number, y: number, size: number, rotation: number, opacity: number) => {
+    // Draw crisp triangle with lines only
+    const drawTriangle = (x: number, y: number, size: number, opacity: number) => {
       ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(rotation);
       ctx.globalAlpha = opacity;
-      
-      // Draw crisp white triangle with no blur
-      ctx.beginPath();
-      ctx.moveTo(0, -size / 2);
-      ctx.lineTo(-size / 2, size / 2);
-      ctx.lineTo(size / 2, size / 2);
-      ctx.closePath();
-      ctx.fillStyle = 'white';
-      ctx.fill();
-      
-      // Add crisp border for better definition
       ctx.strokeStyle = 'white';
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.5;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      
+      // Draw triangle outline only (no fill)
+      ctx.beginPath();
+      ctx.moveTo(x, y - size / 2);
+      ctx.lineTo(x - size / 2, y + size / 2);
+      ctx.lineTo(x + size / 2, y + size / 2);
+      ctx.closePath();
       ctx.stroke();
       
       ctx.restore();
@@ -90,9 +82,6 @@ const TriangleParticles = () => {
         // Move triangle upward
         triangle.y -= triangle.speed;
         
-        // Rotate triangle
-        triangle.rotation += triangle.rotationSpeed;
-        
         // Reset triangle when it goes off screen
         if (triangle.y < -triangle.size) {
           triangle.y = (canvas.height / (window.devicePixelRatio || 1)) + triangle.size;
@@ -100,7 +89,7 @@ const TriangleParticles = () => {
         }
         
         // Draw triangle
-        drawTriangle(triangle.x, triangle.y, triangle.size, triangle.rotation, triangle.opacity);
+        drawTriangle(triangle.x, triangle.y, triangle.size, triangle.opacity);
       }
       
       animationFrameId = requestAnimationFrame(animate);
@@ -135,7 +124,7 @@ export function Hero(): JSX.Element {
         style={{ background: 'linear-gradient(135deg, #0B2B40 0%, #1a4a6e 50%, #0B2B40 100%)' }}
       />
       
-      {/* Crisp triangle particles */}
+      {/* Crisp line-based triangle particles */}
       <TriangleParticles />
       
       {/* Glass overlay */}
@@ -147,7 +136,7 @@ export function Hero(): JSX.Element {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-6 tracking-wider">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 tracking-wider">
             <span className="block">{company.name.split(' & ')[0]}</span>
             <span className="block text-accent mt-2">{company.name.split(' & ')[1]}</span>
           </h1>
