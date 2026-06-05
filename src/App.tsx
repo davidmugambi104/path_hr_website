@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
-import { EnhancedNavbar } from './components/layout/EnhancedNavbar';
+import { BorderedNavbar } from './components/layout/BorderedNavbar';
 import { Footer } from './components/layout/Footer';
 import { BackToTop } from './components/ui/BackToTop';
 import { StructuredData } from './components/layout/StructuredData';
 import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
-import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
+import { FixedFloatingWhatsApp } from './components/ui/FixedFloatingWhatsApp';
 import { LiveChat } from './components/ui/LiveChat';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
@@ -17,7 +17,7 @@ import { Team } from './components/sections/Team';
 import { Clients } from './components/sections/Clients';
 import { Testimonials } from './components/sections/Testimonials';
 import { CaseStudies } from './components/sections/CaseStudies';
-import { DownloadBrochure } from './components/sections/DownloadBrochure';
+import { FixedDownloadBrochure } from './components/sections/FixedDownloadBrochure';
 import { Newsletter } from './components/sections/Newsletter';
 import { Contact } from './components/sections/Contact';
 import { FAQ } from './components/sections/FAQ';
@@ -42,7 +42,7 @@ function App() {
           </Helmet>
           
           <StructuredData />
-          <EnhancedNavbar />
+          <BorderedNavbar />
           <main className="flex-grow">
             <Suspense fallback={<LoadingSkeleton />}>
               <Hero />
@@ -59,7 +59,7 @@ function App() {
               <Testimonials />
               <CaseStudies />
               <Clients />
-              <DownloadBrochure />
+              <FixedDownloadBrochure />
               <Newsletter />
               <FAQ />
               <Contact />
@@ -67,7 +67,7 @@ function App() {
           </main>
           <Footer />
           <BackToTop />
-          <FloatingWhatsApp />
+          <FixedFloatingWhatsApp />
           <LiveChat />
         </div>
       </ErrorBoundary>
