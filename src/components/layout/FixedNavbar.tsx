@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SearchBar } from '../ui/SearchBar';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 
 export function FixedNavbar(): JSX.Element {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isSticky, setIsSticky] = useState(false);
 
@@ -54,7 +52,6 @@ export function FixedNavbar(): JSX.Element {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setMobileMenuOpen(false);
-        setShowSearch(false);
       }
     };
     
@@ -81,7 +78,7 @@ export function FixedNavbar(): JSX.Element {
 
   return (
     <>
-      {/* Fixed Navigation Bar - Responsive and properly sized */}
+      {/* Fixed Navigation Bar - Without search functionality */}
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled || isSticky
@@ -124,20 +121,8 @@ export function FixedNavbar(): JSX.Element {
                 );
               })}
               
-              {/* Search and Dark Mode Toggle for Desktop */}
+              {/* Dark Mode Toggle and CTA for Desktop */}
               <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => setShowSearch(!showSearch)}
-                  className={`p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-accent ${
-                    scrolled || isSticky ? 'text-primary hover:text-accent dark:text-white dark:hover:text-accent' : 'text-white hover:text-white/80'
-                  }`}
-                  aria-label="Toggle search"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </button>
-                
                 <DarkModeToggle />
                 
                 <a 
@@ -154,18 +139,8 @@ export function FixedNavbar(): JSX.Element {
               </div>
             </div>
 
-            {/* Mobile menu button - Properly responsive without fixed sizing */}
+            {/* Mobile menu button - Without search */}
             <div className="flex items-center space-x-2 md:hidden">
-              <button
-                onClick={() => setShowSearch(!showSearch)}
-                className="p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50 bg-primary/10 backdrop-blur-sm dark:bg-white/10 flex items-center justify-center"
-                aria-label="Toggle search"
-              >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-              
               <button
                 className="p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50 bg-primary/10 backdrop-blur-sm dark:bg-white/10 flex items-center justify-center"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -186,16 +161,9 @@ export function FixedNavbar(): JSX.Element {
               </button>
             </div>
           </div>
-          
-          {/* Search Bar - Appears below navbar when active */}
-          {showSearch && (
-            <div className="mt-4 pb-4">
-              <SearchBar />
-            </div>
-          )}
         </div>
 
-        {/* Mobile Menu Overlay - Fixed design with proper sizing */}
+        {/* Mobile Menu Overlay - Without search */}
         <div 
           className={`fixed inset-0 z-40 transition-all duration-300 md:hidden ${
             mobileMenuOpen 
@@ -209,67 +177,64 @@ export function FixedNavbar(): JSX.Element {
             onClick={() => setMobileMenuOpen(false)}
           />
           
-          {/* Mobile menu panel - Properly sized without stretching */}
+          {/* Mobile menu panel */}
           <div 
-            className={`absolute top-0 left-0 h-full w-4/5 max-w-xs bg-white shadow-xl transform transition-transform duration-300 ease-in-out dark:bg-gray-800 ${
+            className={`absolute top-0 left-0 h-full w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out dark:bg-gray-800 ${
               mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
-            <div className="flex flex-col h-full pt-6 pb-8">
-              {/* Mobile header with logo and close button */}
-              <div className="flex items-center justify-between px-6 pb-6 mb-4 border-b border-gray-200 dark:border-gray-700">
-                <span className="text-xl font-display font-bold text-primary dark:text-white">
-                  BoldPath<span className="text-accent">HR</span>
-                </span>
-                <button
-                  className="p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent flex items-center justify-center"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
-                >
-                  <svg className="w-6 h-6 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              {/* Mobile Search */}
-              <div className="px-6 mb-6">
-                <SearchBar />
-              </div>
-              
-              <div className="flex-1 px-6 overflow-y-auto">
-                <nav className="space-y-1">
-                  {navLinks.map((link) => {
-                    const sectionId = link.href.replace('#', '');
-                    const isActive = activeSection === sectionId;
-                    
-                    return (
-                      <a
-                        key={link.name}
-                        href={link.href}
-                        onClick={(e) => scrollToSection(e, link.href)}
-                        className={`block py-4 font-sans font-medium transition-colors text-lg border-b border-gray-100 dark:border-gray-700 ${
-                          isActive 
-                            ? 'text-accent font-semibold dark:text-accent' 
-                            : 'text-primary hover:text-accent dark:text-white dark:hover:text-accent'
-                        }`}
-                      >
-                        {link.name}
-                      </a>
-                    );
-                  })}
-                </nav>
-              </div>
-              
-              <div className="px-6 pt-4 flex items-center justify-between">
-                <DarkModeToggle />
-                <a 
-                  href="#contact" 
-                  onClick={(e) => scrollToSection(e, '#contact')}
-                  className="block bg-accent text-white px-6 py-4 rounded-xl font-display font-semibold text-center hover:bg-primary transition-colors"
-                >
-                  Get Started
-                </a>
+            <div className="h-full flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col h-full pt-6 pb-8">
+                {/* Mobile header with logo and close button */}
+                <div className="flex items-center justify-between pb-6 mb-4 border-b border-gray-200 dark:border-gray-700">
+                  <span className="text-xl font-display font-bold text-primary dark:text-white">
+                    BoldPath<span className="text-accent">HR</span>
+                  </span>
+                  <button
+                    className="p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent flex items-center justify-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <svg className="w-6 h-6 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div className="flex-1 overflow-y-auto">
+                  <nav className="space-y-1">
+                    {navLinks.map((link) => {
+                      const sectionId = link.href.replace('#', '');
+                      const isActive = activeSection === sectionId;
+                      
+                      return (
+                        <a
+                          key={link.name}
+                          href={link.href}
+                          onClick={(e) => scrollToSection(e, link.href)}
+                          className={`block py-4 font-sans font-medium transition-colors text-lg border-b border-gray-100 dark:border-gray-700 ${
+                            isActive 
+                              ? 'text-accent font-semibold dark:text-accent' 
+                              : 'text-primary hover:text-accent dark:text-white dark:hover:text-accent'
+                          }`}
+                        >
+                          {link.name}
+                        </a>
+                      );
+                    })}
+                  </nav>
+                </div>
+                
+                <div className="pt-4 flex items-center justify-between">
+                  <DarkModeToggle />
+                  <a 
+                    href="#contact" 
+                    onClick={(e) => scrollToSection(e, '#contact')}
+                    className="block bg-accent text-white px-6 py-4 rounded-xl font-display font-semibold text-center hover:bg-primary transition-colors"
+                  >
+                    Get Started
+                  </a>
+                </div>
               </div>
             </div>
           </div>

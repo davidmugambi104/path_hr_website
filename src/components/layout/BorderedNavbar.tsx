@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SearchBar } from '../ui/SearchBar';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 
 export function BorderedNavbar(): JSX.Element {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isSticky, setIsSticky] = useState(false);
 
@@ -54,7 +52,6 @@ export function BorderedNavbar(): JSX.Element {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setMobileMenuOpen(false);
-        setShowSearch(false);
       }
     };
     
@@ -125,20 +122,8 @@ export function BorderedNavbar(): JSX.Element {
                 );
               })}
               
-              {/* Search and Dark Mode Toggle for Desktop */}
+              {/* Dark Mode Toggle and CTA for Desktop */}
               <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => setShowSearch(!showSearch)}
-                  className={`p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
-                    scrolled || isSticky ? 'text-primary hover:text-accent dark:text-white dark:hover:text-accent' : 'text-white hover:text-white/80'
-                  }`}
-                  aria-label="Toggle search"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </button>
-                
                 <DarkModeToggle />
                 
                 <a 
@@ -155,18 +140,8 @@ export function BorderedNavbar(): JSX.Element {
               </div>
             </div>
 
-            {/* Mobile menu button - Properly responsive */}
+            {/* Mobile menu button - Without search */}
             <div className="flex items-center space-x-2 md:hidden">
-              <button
-                onClick={() => setShowSearch(!showSearch)}
-                className="p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50 bg-primary/10 backdrop-blur-sm dark:bg-white/10 flex items-center justify-center"
-                aria-label="Toggle search"
-              >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-              
               <button
                 className="p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50 bg-primary/10 backdrop-blur-sm dark:bg-white/10 flex items-center justify-center"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -187,16 +162,9 @@ export function BorderedNavbar(): JSX.Element {
               </button>
             </div>
           </div>
-          
-          {/* Search Bar - Appears below navbar when active */}
-          {showSearch && (
-            <div className="mt-4 pb-4">
-              <SearchBar />
-            </div>
-          )}
         </div>
 
-        {/* Mobile Menu Overlay - With proper borders/margins */}
+        {/* Mobile Menu Overlay - Without search */}
         <div 
           className={`fixed inset-0 z-40 transition-all duration-300 md:hidden ${
             mobileMenuOpen 
@@ -233,11 +201,6 @@ export function BorderedNavbar(): JSX.Element {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
-                </div>
-                
-                {/* Mobile Search */}
-                <div className="mb-6">
-                  <SearchBar />
                 </div>
                 
                 <div className="flex-1 overflow-y-auto">
