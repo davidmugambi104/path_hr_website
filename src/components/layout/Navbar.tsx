@@ -35,7 +35,7 @@ export function Navbar(): JSX.Element {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-md py-2' 
+          ? 'bg-white/95 backdrop-blur-sm shadow-md py-2' 
           : 'bg-transparent py-4'
       }`}
     >
@@ -45,7 +45,7 @@ export function Navbar(): JSX.Element {
             <span className={`text-xl md:text-2xl font-display font-bold ${
               scrolled ? 'text-primary' : 'text-white'
             }`}>
-              BoldPath<span className={scrolled ? 'text-accent' : 'text-white'}>HR</span>
+              BoldPath<span className={scrolled ? 'text-accent' : 'text-accent'}>HR</span>
             </span>
           </a>
 
@@ -79,7 +79,7 @@ export function Navbar(): JSX.Element {
             </a>
           </div>
 
-          {/* Mobile menu button - Improved responsive design */}
+          {/* Mobile menu button - Improved design */}
           <button
             className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -101,7 +101,7 @@ export function Navbar(): JSX.Element {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay - Fixed responsiveness issues */}
+      {/* Mobile Menu Overlay - Improved design */}
       <div 
         className={`fixed inset-0 z-40 transition-all duration-300 md:hidden ${
           mobileMenuOpen 
@@ -109,15 +109,15 @@ export function Navbar(): JSX.Element {
             : 'opacity-0 invisible'
         }`}
       >
-        {/* Transparent but blurry overlay */}
+        {/* Semi-transparent overlay */}
         <div 
-          className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/50"
           onClick={() => setMobileMenuOpen(false)}
         />
         
-        {/* Improved mobile sidebar with better responsiveness */}
+        {/* Mobile menu panel - cleaner design */}
         <div 
-          className={`absolute top-0 right-0 h-full w-full max-w-xs bg-white/90 backdrop-blur-lg shadow-2xl transform transition-transform duration-300 ease-in-out ${
+          className={`absolute top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >

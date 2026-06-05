@@ -128,3 +128,6 @@ Port 3002 is in use, trying another one...
 6:34:18 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
 6:35:01 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
 6:35:29 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
+6:37:41 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+6:38:08 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:38:56 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css

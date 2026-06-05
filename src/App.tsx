@@ -5,6 +5,7 @@ import { BackToTop } from './components/ui/BackToTop';
 import { StructuredData } from './components/layout/StructuredData';
 import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
+import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Values } from './components/sections/Values';
@@ -55,6 +56,7 @@ function App() {
           </main>
           <Footer />
           <BackToTop />
+          <FloatingWhatsApp />
         </div>
       </ErrorBoundary>
     </HelmetProvider>

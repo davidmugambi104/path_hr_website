@@ -12,10 +12,12 @@ const TriangleParticles = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    // Set canvas size
+    // Set canvas size with higher resolution for crisp rendering
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
     };
     
     resizeCanvas();
@@ -38,8 +40,8 @@ const TriangleParticles = () => {
     // Initialize triangles
     for (let i = 0; i < triangleCount; i++) {
       triangles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * (canvas.width / (window.devicePixelRatio || 1)),
+        y: Math.random() * (canvas.height / (window.devicePixelRatio || 1)),
         size: Math.random() * 30 + 10,
         speed: Math.random() * 0.5 + 0.1,
         rotation: Math.random() * Math.PI * 2,
@@ -48,14 +50,14 @@ const TriangleParticles = () => {
       });
     }
     
-    // Draw a triangle
+    // Draw a crisp triangle
     const drawTriangle = (x: number, y: number, size: number, rotation: number, opacity: number) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(rotation);
       ctx.globalAlpha = opacity;
       
-      // Draw clean white triangle
+      // Draw crisp white triangle with no blur
       ctx.beginPath();
       ctx.moveTo(0, -size / 2);
       ctx.lineTo(-size / 2, size / 2);
@@ -63,6 +65,11 @@ const TriangleParticles = () => {
       ctx.closePath();
       ctx.fillStyle = 'white';
       ctx.fill();
+      
+      // Add crisp border for better definition
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 1;
+      ctx.stroke();
       
       ctx.restore();
     };
@@ -74,7 +81,7 @@ const TriangleParticles = () => {
       if (!ctx) return;
       
       // Clear canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
       
       // Update and draw triangles
       for (let i = 0; i < triangles.length; i++) {
@@ -88,8 +95,8 @@ const TriangleParticles = () => {
         
         // Reset triangle when it goes off screen
         if (triangle.y < -triangle.size) {
-          triangle.y = canvas.height + triangle.size;
-          triangle.x = Math.random() * canvas.width;
+          triangle.y = (canvas.height / (window.devicePixelRatio || 1)) + triangle.size;
+          triangle.x = Math.random() * (canvas.width / (window.devicePixelRatio || 1));
         }
         
         // Draw triangle
@@ -111,6 +118,7 @@ const TriangleParticles = () => {
     <canvas 
       ref={canvasRef} 
       className="absolute inset-0 w-full h-full"
+      style={{ imageRendering: 'crisp-edges' }}
     />
   );
 };
@@ -127,7 +135,7 @@ export function Hero(): JSX.Element {
         style={{ background: 'linear-gradient(135deg, #0B2B40 0%, #1a4a6e 50%, #0B2B40 100%)' }}
       />
       
-      {/* Clean triangle particles */}
+      {/* Crisp triangle particles */}
       <TriangleParticles />
       
       {/* Glass overlay */}
