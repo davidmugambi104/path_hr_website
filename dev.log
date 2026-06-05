@@ -121,3 +121,10 @@ Port 3002 is in use, trying another one...
 6:23:36 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
 6:24:08 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
 6:32:23 PM [vite] hmr update /src/styles/globals.css
+6:32:45 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:32:54 PM [vite] hmr update /src/components/sections/About.tsx, /src/styles/globals.css
+6:33:34 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+6:34:06 PM [vite] hmr update /src/components/sections/Values.tsx, /src/styles/globals.css
+6:34:18 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+6:35:01 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+6:35:29 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css

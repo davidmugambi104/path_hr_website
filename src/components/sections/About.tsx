@@ -18,7 +18,7 @@ export function About(): JSX.Element {
             </h2>
             
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-600 font-normal mb-4 subtitle-text">
+              <p className="text-gray-600 font-normal mb-4">
                 <span className="font-semibold">BoldPath HR & Business Solutions</span> is a premier HR consultancy dedicated to empowering African organizations with strategic human capital capabilities.
               </p>
               

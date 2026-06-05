@@ -149,7 +149,7 @@ export function Hero(): JSX.Element {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-normal max-w-3xl mx-auto mb-8 md:mb-10 subtitle-text"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-normal max-w-3xl mx-auto mb-8 md:mb-10"
         >
           {company.tagline}
         </motion.p>
