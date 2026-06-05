@@ -135,3 +135,15 @@ Port 3002 is in use, trying another one...
 6:47:58 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
 6:48:22 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
 6:49:52 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:54:23 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+6:54:41 PM [vite] hmr update /src/styles/globals.css
+6:54:52 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+6:55:11 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+6:55:33 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+6:58:28 PM [vite] hmr update /src/styles/globals.css
+6:58:59 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+6:59:25 PM [vite] page reload src/components/ui/Breadcrumbs.tsx
+7:01:54 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+7:18:41 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+7:19:56 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+7:20:56 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css

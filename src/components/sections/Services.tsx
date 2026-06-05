@@ -25,7 +25,7 @@ export function Services(): JSX.Element {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className={`bg-white rounded-2xl p-6 md:p-8 shadow-lg cursor-pointer transition-all duration-300 card-hover ${
+              className={`bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 ${
                 expandedIndex === index 
                   ? 'ring-2 ring-accent ring-offset-2' 
                   : ''
@@ -75,14 +75,14 @@ export function Services(): JSX.Element {
               <div className="mt-4 text-accent text-sm font-medium font-normal flex items-center">
                 {expandedIndex === index ? (
                   <>
-                    <span>Click to collapse</span>
+                    <span>Show less</span>
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                     </svg>
                   </>
                 ) : (
                   <>
-                    <span>Click to expand</span>
+                    <span>Learn more</span>
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
