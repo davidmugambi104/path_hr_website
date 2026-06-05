@@ -19,7 +19,7 @@ import { Testimonials } from './components/sections/Testimonials';
 import { CaseStudies } from './components/sections/CaseStudies';
 import { FixedDownloadBrochure } from './components/sections/FixedDownloadBrochure';
 import { Newsletter } from './components/sections/Newsletter';
-import { LeafletMapWhatsAppContact } from './components/sections/LeafletMapWhatsAppContact';
+import { FixedContactCards } from './components/sections/FixedContactCards';
 import { FAQ } from './components/sections/FAQ';
 import { ServiceComparison } from './components/sections/ServiceComparison';
 import { Certifications } from './components/sections/Certifications';
@@ -62,7 +62,7 @@ function App() {
               <FixedDownloadBrochure />
               <Newsletter />
               <FAQ />
-              <LeafletMapWhatsAppContact />
+              <FixedContactCards />
             </Suspense>
           </main>
           <Footer />
