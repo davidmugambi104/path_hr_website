@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { company } from '../../lib/content';
+import { motion } from 'framer-motion';
 
 export function Contact(): JSX.Element {
   const [formData, setFormData] = useState({
@@ -35,23 +36,40 @@ export function Contact(): JSX.Element {
         service: '',
         message: ''
       });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
     }, 1500);
   };
 
   return (
     <section id="contact" className="py-16 md:py-20 lg:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-6">
             Get In <span className="text-accent">Touch</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
             Ready to transform your organization? Let's start a conversation.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          <div>
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-display font-bold text-primary mb-6">Contact Information</h3>
               
@@ -107,20 +125,26 @@ export function Contact(): JSX.Element {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div>
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-display font-bold text-primary mb-6">Send Us a Message</h3>
               
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-xl text-green-700">
-                  Message sent successfully. We'll be in touch soon.
+                <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-xl text-green-700 font-sans">
+                  Message sent successfully! We'll be in touch soon.
                 </div>
               )}
               
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-100 border border-red-300 rounded-xl text-red-700">
+                <div className="mb-6 p-4 bg-red-100 border border-red-300 rounded-xl text-red-700 font-sans">
                   Something went wrong. Please try again or email us directly.
                 </div>
               )}
@@ -128,7 +152,9 @@ export function Contact(): JSX.Element {
               <div className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-sans font-medium text-gray-700 mb-1">Name *</label>
+                    <label htmlFor="name" className="block text-sm font-sans font-medium text-gray-700 mb-1">
+                      Name <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -138,10 +164,13 @@ export function Contact(): JSX.Element {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all font-sans"
                       placeholder="Your name"
                       required
+                      aria-required="true"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-sans font-medium text-gray-700 mb-1">Email *</label>
+                    <label htmlFor="email" className="block text-sm font-sans font-medium text-gray-700 mb-1">
+                      Email <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -151,13 +180,16 @@ export function Contact(): JSX.Element {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all font-sans"
                       placeholder="your@email.com"
                       required
+                      aria-required="true"
                     />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-sans font-medium text-gray-700 mb-1">Phone</label>
+                    <label htmlFor="phone" className="block text-sm font-sans font-medium text-gray-700 mb-1">
+                      Phone
+                    </label>
                     <input
                       type="tel"
                       id="phone"
@@ -169,7 +201,9 @@ export function Contact(): JSX.Element {
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-sans font-medium text-gray-700 mb-1">Company</label>
+                    <label htmlFor="company" className="block text-sm font-sans font-medium text-gray-700 mb-1">
+                      Company
+                    </label>
                     <input
                       type="text"
                       id="company"
@@ -183,7 +217,9 @@ export function Contact(): JSX.Element {
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-sans font-medium text-gray-700 mb-1">Service Interested In</label>
+                  <label htmlFor="service" className="block text-sm font-sans font-medium text-gray-700 mb-1">
+                    Service Interested In
+                  </label>
                   <select
                     id="service"
                     name="service"
@@ -199,7 +235,9 @@ export function Contact(): JSX.Element {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-sans font-medium text-gray-700 mb-1">Message *</label>
+                  <label htmlFor="message" className="block text-sm font-sans font-medium text-gray-700 mb-1">
+                    Message <span className="text-red-500">*</span>
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -209,19 +247,28 @@ export function Contact(): JSX.Element {
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all font-sans resize-none"
                     placeholder="Tell us about your project or requirements..."
                     required
+                    aria-required="true"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-accent text-white px-6 py-4 rounded-xl font-display font-semibold hover:bg-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isSubmitting}
+                  className="w-full bg-accent text-white px-6 py-4 rounded-xl font-display font-semibold hover:bg-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : 'Send Message'}
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

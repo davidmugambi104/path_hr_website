@@ -10,3 +10,19 @@ Port 3002 is in use, trying another one...
 
   ➜  Local:   http://localhost:3003/
   ➜  Network: use --host to expose
+5:21:48 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+5:21:49 PM [vite] ✨ new dependencies optimized: framer-motion
+5:21:49 PM [vite] ✨ optimized dependencies changed. reloading
+5:23:26 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+5:23:26 PM [vite] ✨ new dependencies optimized: react-helmet-async
+5:23:26 PM [vite] ✨ optimized dependencies changed. reloading
+5:23:47 PM [vite] page reload src/main.tsx
+5:24:08 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+5:24:23 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+5:24:54 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+5:25:30 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+5:26:39 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+5:26:53 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+5:27:24 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+5:27:54 PM [vite] hmr update /src/components/sections/Testimonials.tsx, /src/styles/globals.css
+5:28:28 PM [vite] hmr update /src/components/sections/CaseStudies.tsx, /src/styles/globals.css
