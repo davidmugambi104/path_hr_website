@@ -6,7 +6,7 @@ import { StructuredData } from './components/layout/StructuredData';
 import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { FixedFloatingWhatsApp } from './components/ui/FixedFloatingWhatsApp';
-import { LiveChat } from './components/ui/LiveChat';
+import { FixedLiveChat } from './components/ui/FixedLiveChat';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Values } from './components/sections/Values';
@@ -19,7 +19,7 @@ import { Testimonials } from './components/sections/Testimonials';
 import { CaseStudies } from './components/sections/CaseStudies';
 import { FixedDownloadBrochure } from './components/sections/FixedDownloadBrochure';
 import { Newsletter } from './components/sections/Newsletter';
-import { Contact } from './components/sections/Contact';
+import { LeafletMapWhatsAppContact } from './components/sections/LeafletMapWhatsAppContact';
 import { FAQ } from './components/sections/FAQ';
 import { ServiceComparison } from './components/sections/ServiceComparison';
 import { Certifications } from './components/sections/Certifications';
@@ -62,13 +62,13 @@ function App() {
               <FixedDownloadBrochure />
               <Newsletter />
               <FAQ />
-              <Contact />
+              <LeafletMapWhatsAppContact />
             </Suspense>
           </main>
           <Footer />
           <BackToTop />
           <FixedFloatingWhatsApp />
-          <LiveChat />
+          <FixedLiveChat />
         </div>
       </ErrorBoundary>
     </HelmetProvider>

@@ -150,3 +150,86 @@ Port 3002 is in use, trying another one...
 8:04:38 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
 8:06:26 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
 9:46:54 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+10:43:17 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+11:01:23 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+11:01:24 PM [vite] Internal server error: /home/davie/Documents/boldpath-hr-react/src/components/sections/WhatsAppContact.tsx: Unexpected token (15:42)
+
+  13 |   });
+  14 |   const [isSubmitting, setIsSubmitting] = useState(false);
+> 15 |   const [submitStatus, setSubmitStatus] =<'idle' | 'success' | 'error'>('idle');
+     |                                           ^
+  16 |
+  17 |   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  18 |     const { name, value } = e.target;
+  Plugin: vite:react-babel
+  File: /home/davie/Documents/boldpath-hr-react/src/components/sections/WhatsAppContact.tsx:15:42
+  13 |    });
+  14 |    const [isSubmitting, setIsSubmitting] = useState(false);
+  15 |    const [submitStatus, setSubmitStatus] =<'idle' | 'success' | 'error'>('idle');
+     |                                            ^
+  16 |  
+  17 |    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      at constructor (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:6636:16)
+      at TypeScriptParserMixin.jsxParseIdentifier (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4581:12)
+      at TypeScriptParserMixin.jsxParseNamespacedName (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4588:23)
+      at TypeScriptParserMixin.jsxParseElementName (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4597:21)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4673:22)
+      at TypeScriptParserMixin.jsxParseElementAt (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElement (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12438:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseVar (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13401:91)
+      at TypeScriptParserMixin.parseVarStatement (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13247:10)
+      at TypeScriptParserMixin.parseVarStatement (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9425:31)
+      at TypeScriptParserMixin.parseStatementContent (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12868:23)
+      at TypeScriptParserMixin.parseStatementContent (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9189:18)
+      at /home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12420:14)
+      at TypeScriptParserMixin.parseFunction (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13461:10)
+      at TypeScriptParserMixin.parseFunctionStatement (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13142:17)
+      at TypeScriptParserMixin.parseStatementContent (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12808:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:12764:17)
+      at TypeScriptParserMixin.parseExportDeclaration (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13951:17)
+      at TypeScriptParserMixin.parseExportDeclaration (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9646:85)
+      at TypeScriptParserMixin.maybeParseExportDeclaration (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13910:31)
+      at TypeScriptParserMixin.parseExport (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:13829:29)
+      at TypeScriptParserMixin.parseExport (/home/davie/Documents/boldpath-hr-react/node_modules/@babel/parser/lib/index.js:9402:20)
+11:01:24 PM [vite] Pre-transform error: /home/davie/Documents/boldpath-hr-react/src/components/sections/WhatsAppContact.tsx: Unexpected token (15:42)
+
+  13 |   });
+  14 |   const [isSubmitting, setIsSubmitting] = useState(false);
+> 15 |   const [submitStatus, setSubmitStatus] =<'idle' | 'success' | 'error'>('idle');
+     |                                           ^
+  16 |
+  17 |   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  18 |     const { name, value } = e.target;
+11:13:00 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+11:15:38 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+11:18:42 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+11:18:43 PM [vite] ✨ new dependencies optimized: leaflet
+11:18:43 PM [vite] ✨ optimized dependencies changed. reloading
