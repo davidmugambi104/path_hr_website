@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export function NotFound(): JSX.Element {
   return (
@@ -18,7 +17,7 @@ export function NotFound(): JSX.Element {
             Go Home
           </a>
           <a 
-            href="/contact" 
+            href="/#contact" 
             className="border-2 border-primary text-primary px-8 py-4 rounded-xl font-display font-semibold hover:bg-primary hover:text-white transition-colors"
           >
             Contact Us

@@ -34,14 +34,28 @@ export const company = {
   team: { 
     desc: 'Our team comprises seasoned professionals with diverse backgrounds across Finance, Healthcare, Telecom, Manufacturing, and NGO sectors.', 
     members: [
-      { name: 'Wambui Njoroge', role: 'Managing Director', image: '' }, 
-      { name: 'David Mugambi', role: 'HR Director', image: '' }, 
-      { name: 'Grace Wanjiku', role: 'Senior Consultant', image: '' }, 
-      { name: 'Joseph Otieno', role: 'Training Lead', image: '' }
+      { name: 'Wambui Njoroge', role: 'Managing Director', image: 'wambui-njoroge' }, 
+      { name: 'David Mugambi', role: 'HR Director', image: 'david-mugambi' }, 
+      { name: 'Grace Wanjiku', role: 'Senior Consultant', image: 'grace-wanjiku' }, 
+      { name: 'Joseph Otieno', role: 'Training Lead', image: 'joseph-otieno' }
     ] 
   },
-  clients: ['Private sector', 'Government institutions', 'NGOs', 'Startups & SMEs'],
-  contact: { email: 'info@boldpathhrandbusinesssolutions.co.ke', phone: '0795959416', location: 'Nairobi, Kenya' }
+  clients: [
+    'TechInnovate Ltd', 
+    'MediCare Regional Network', 
+    'Nairobi Growth Partners', 
+    'AgriFlow Cooperative', 
+    'FinTech Solutions Ltd'
+  ],
+  contact: { 
+    email: 'info@boldpathhrandbusinesssolutions.co.ke', 
+    phone: '0795959416', 
+    location: 'Nairobi, Kenya' 
+  }
 };
 
-export const socialLinks = { linkedin: '#', twitter: '#', facebook: '#' };
+export const socialLinks = { 
+  linkedin: 'https://www.linkedin.com/company/boldpath-hr', 
+  twitter: 'https://twitter.com/boldpathhr', 
+  facebook: 'https://www.facebook.com/boldpathhr' 
+};

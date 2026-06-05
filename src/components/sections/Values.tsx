@@ -1,5 +1,6 @@
 import React from 'react';
 import { company } from '../../lib/content';
+import { motion } from 'framer-motion';
 
 const iconMap: Record<string, JSX.Element> = {
   shield: (
@@ -31,26 +32,33 @@ const iconMap: Record<string, JSX.Element> = {
 
 export function Values(): JSX.Element {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-primary mb-4 md:mb-6 tracking-wider">
             Our <span className="text-accent">Values</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            The principles that guide everything we do
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-normal">
+            The core principles that guide everything we do
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {company.values.map((value, index) => (
-            <div key={index} className="bg-surface rounded-2xl p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center text-accent">
-                {iconMap[value.icon]}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg card-hover"
+            >
+              <div className="w-14 h-14 mb-5 md:mb-6 bg-primary/10 rounded-xl flex items-center justify-center text-accent">
+                {iconMap[value.icon as keyof typeof iconMap] || iconMap.shield}
               </div>
-              <h3 className="text-xl font-display font-bold text-primary mb-3">{value.title}</h3>
-              <p className="text-gray-600 font-sans text-sm">{value.desc}</p>
-            </div>
+              <h3 className="text-lg md:text-xl font-semibold text-primary mb-3">{value.title}</h3>
+              <p className="text-gray-600 font-normal text-sm md:text-base">{value.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>

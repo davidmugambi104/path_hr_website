@@ -1,74 +1,71 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { company } from '../../lib/content';
 
-const ParticleBackground = () => {
+const TriangleParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  
-  useEffect(() => {
-    const updateDimensions = () => {
-      if (canvasRef.current) {
-        setDimensions({
-          width: canvasRef.current.offsetWidth,
-          height: canvasRef.current.offsetHeight
-        });
-      }
-    };
-    
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
   
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !dimensions.width || !dimensions.height) return;
+    if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
     // Set canvas size
-    canvas.width = dimensions.width;
-    canvas.height = dimensions.height;
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
     
-    // Particle system
-    type Particle = {
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Triangle particle system
+    type Triangle = {
       x: number;
       y: number;
-      vx: number;
-      vy: number;
       size: number;
+      speed: number;
+      rotation: number;
+      rotationSpeed: number;
       opacity: number;
     };
     
-    const particles: Particle[] = [];
-    const particleCount = Math.min(80, Math.floor(dimensions.width * dimensions.height / 12000));
+    const triangles: Triangle[] = [];
+    const triangleCount = Math.min(40, Math.floor(canvas.width * canvas.height / 20000));
     
-    // Initialize particles
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * dimensions.width,
-        y: Math.random() * dimensions.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.1
+    // Initialize triangles
+    for (let i = 0; i < triangleCount; i++) {
+      triangles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 30 + 10,
+        speed: Math.random() * 0.5 + 0.1,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
+        opacity: Math.random() * 0.3 + 0.1
       });
     }
     
-    // Mouse position
-    const mouse = { x: dimensions.width / 2, y: dimensions.height / 2, radius: 100 };
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
+    // Draw a triangle
+    const drawTriangle = (x: number, y: number, size: number, rotation: number, opacity: number) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.globalAlpha = opacity;
+      
+      // Draw clean white triangle
+      ctx.beginPath();
+      ctx.moveTo(0, -size / 2);
+      ctx.lineTo(-size / 2, size / 2);
+      ctx.lineTo(size / 2, size / 2);
+      ctx.closePath();
+      ctx.fillStyle = 'white';
+      ctx.fill();
+      
+      ctx.restore();
     };
-    
-    canvas.addEventListener('mousemove', handleMouseMove);
     
     // Animation loop
     let animationFrameId: number;
@@ -76,72 +73,27 @@ const ParticleBackground = () => {
     const animate = () => {
       if (!ctx) return;
       
-      // Clear canvas with a subtle fade effect
-      ctx.fillStyle = 'rgba(11, 43, 64, 0.05)';
-      ctx.fillRect(0, 0, dimensions.width, dimensions.height);
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw particles
-      ctx.strokeStyle = 'rgba(196, 69, 44, 0.3)';
-      ctx.lineWidth = 1;
-      
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
+      // Update and draw triangles
+      for (let i = 0; i < triangles.length; i++) {
+        const triangle = triangles[i];
         
-        // Mouse repulsion
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        // Move triangle upward
+        triangle.y -= triangle.speed;
         
-        if (distance < mouse.radius) {
-          const angle = Math.atan2(dy, dx);
-          const force = (mouse.radius - distance) / mouse.radius;
-          p.vx += Math.cos(angle) * force * 0.5;
-          p.vy += Math.sin(angle) * force * 0.5;
+        // Rotate triangle
+        triangle.rotation += triangle.rotationSpeed;
+        
+        // Reset triangle when it goes off screen
+        if (triangle.y < -triangle.size) {
+          triangle.y = canvas.height + triangle.size;
+          triangle.x = Math.random() * canvas.width;
         }
         
-        // Update position
-        p.x += p.vx;
-        p.y += p.vy;
-        
-        // Boundary checks with bounce
-        if (p.x < 0) {
-          p.x = 0;
-          p.vx *= -1;
-        } else if (p.x > dimensions.width) {
-          p.x = dimensions.width;
-          p.vx *= -1;
-        }
-        
-        if (p.y < 0) {
-          p.y = 0;
-          p.vy *= -1;
-        } else if (p.y > dimensions.height) {
-          p.y = dimensions.height;
-          p.vy *= -1;
-        }
-        
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(196, 69, 44, ${p.opacity})`;
-        ctx.fill();
-        
-        // Draw connections to nearby particles
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < 100) {
-            const opacity = (1 - dist / 100) * 0.2;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(196, 69, 44, ${opacity})`;
-            ctx.stroke();
-          }
-        }
+        // Draw triangle
+        drawTriangle(triangle.x, triangle.y, triangle.size, triangle.rotation, triangle.opacity);
       }
       
       animationFrameId = requestAnimationFrame(animate);
@@ -150,16 +102,15 @@ const ParticleBackground = () => {
     animate();
     
     return () => {
-      canvas.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [dimensions]);
+  }, []);
   
   return (
     <canvas 
       ref={canvasRef} 
       className="absolute inset-0 w-full h-full"
-      style={{ background: 'linear-gradient(135deg, #0B2B40 0%, #1a4a6e 50%, #0B2B40 100%)' }}
     />
   );
 };
@@ -170,9 +121,17 @@ export function Hero(): JSX.Element {
       id="home" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <ParticleBackground />
+      {/* Original gradient background */}
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{ background: 'linear-gradient(135deg, #0B2B40 0%, #1a4a6e 50%, #0B2B40 100%)' }}
+      />
       
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/40"></div>
+      {/* Clean triangle particles */}
+      <TriangleParticles />
+      
+      {/* Glass overlay */}
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <motion.div
@@ -180,7 +139,7 @@ export function Hero(): JSX.Element {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-6 tracking-wider">
             <span className="block">{company.name.split(' & ')[0]}</span>
             <span className="block text-accent mt-2">{company.name.split(' & ')[1]}</span>
           </h1>
@@ -190,7 +149,7 @@ export function Hero(): JSX.Element {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-sans max-w-3xl mx-auto mb-8 md:mb-10"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-normal max-w-3xl mx-auto mb-8 md:mb-10 subtitle-text"
         >
           {company.tagline}
         </motion.p>
@@ -234,8 +193,8 @@ export function Hero(): JSX.Element {
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
               className="text-center"
             >
-              <div className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-accent mb-1">{stat.value}</div>
-              <div className="text-white/70 font-sans text-xs sm:text-sm">{stat.label}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-normal text-accent mb-1">{stat.value}</div>
+              <div className="text-white/70 font-normal text-xs sm:text-sm">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

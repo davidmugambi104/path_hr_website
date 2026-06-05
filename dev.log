@@ -26,3 +26,98 @@ Port 3002 is in use, trying another one...
 5:27:24 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
 5:27:54 PM [vite] hmr update /src/components/sections/Testimonials.tsx, /src/styles/globals.css
 5:28:28 PM [vite] hmr update /src/components/sections/CaseStudies.tsx, /src/styles/globals.css
+5:29:25 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+5:30:10 PM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+5:31:05 PM [vite] page reload src/components/sections/NotFound.tsx
+5:37:12 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+5:38:38 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+5:44:51 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+5:45:03 PM [vite] hmr update /src/styles/globals.css
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+5:45:22 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+5:46:00 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+5:46:24 PM [vite] hmr update /src/styles/globals.css, /src/components/sections/Clients.tsx, /src/components/sections/About.tsx, /src/components/sections/WhyChoose.tsx, /src/components/sections/Services.tsx, /src/components/sections/Values.tsx, /src/components/sections/Team.tsx, /src/components/layout/Footer.tsx, /src/components/sections/Contact.tsx, /src/components/sections/Approach.tsx, /src/components/sections/Hero.tsx, /src/components/layout/StructuredData.tsx
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+5:46:30 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+5:46:53 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+5:47:15 PM [vite] hmr update /src/styles/globals.css
+5:52:19 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+5:52:52 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+5:56:18 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+5:59:15 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+6:01:24 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
+6:04:46 PM [vite] page reload index.html
+6:05:03 PM [vite] hmr update /src/styles/globals.css
+6:05:24 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:05:37 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+6:05:45 PM [vite] hmr update /src/components/sections/About.tsx, /src/styles/globals.css
+6:06:02 PM [vite] hmr update /src/components/sections/Values.tsx, /src/styles/globals.css
+6:06:07 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+6:06:38 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+6:07:06 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
+6:10:17 PM [vite] hmr update /src/styles/globals.css
+6:10:42 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:10:56 PM [vite] hmr update /src/components/sections/About.tsx, /src/styles/globals.css
+6:11:23 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+6:11:44 PM [vite] hmr update /src/components/sections/Values.tsx, /src/styles/globals.css
+6:11:51 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+6:12:33 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+6:13:07 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
+6:15:32 PM [vite] page reload index.html
+6:15:50 PM [vite] hmr update /src/styles/globals.css
+6:16:11 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:16:21 PM [vite] hmr update /src/components/sections/About.tsx, /src/styles/globals.css
+6:16:36 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+6:17:00 PM [vite] hmr update /src/components/sections/Values.tsx, /src/styles/globals.css
+6:17:11 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+6:17:46 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+6:18:12 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
+6:21:49 PM [vite] hmr update /src/styles/globals.css
+6:22:07 PM [vite] hmr update /src/components/sections/Hero.tsx, /src/styles/globals.css
+6:22:18 PM [vite] hmr update /src/components/sections/About.tsx, /src/styles/globals.css
+6:22:33 PM [vite] hmr update /src/components/sections/Services.tsx, /src/styles/globals.css
+6:22:55 PM [vite] hmr update /src/components/sections/Values.tsx, /src/styles/globals.css
+6:23:02 PM [vite] hmr update /src/components/sections/Team.tsx, /src/styles/globals.css
+6:23:36 PM [vite] hmr update /src/components/sections/Contact.tsx, /src/styles/globals.css
+6:24:08 PM [vite] hmr update /src/components/layout/Footer.tsx, /src/styles/globals.css
+6:32:23 PM [vite] hmr update /src/styles/globals.css

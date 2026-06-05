@@ -9,10 +9,10 @@ export function Services(): JSX.Element {
     <section id="services" className="py-12 md:py-16 lg:py-20 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4 md:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-primary mb-4 md:mb-6 tracking-wider">
             Our <span className="text-accent">Services</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-sans">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-normal">
             Comprehensive HR solutions designed to support organizations at every stage of growth and transformation
           </p>
         </div>
@@ -25,10 +25,10 @@ export function Services(): JSX.Element {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className={`bg-white rounded-2xl p-6 md:p-8 shadow-lg cursor-pointer transition-all duration-300 ${
+              className={`bg-white rounded-2xl p-6 md:p-8 shadow-lg cursor-pointer transition-all duration-300 card-hover ${
                 expandedIndex === index 
                   ? 'ring-2 ring-accent ring-offset-2' 
-                  : 'hover:shadow-xl hover:-translate-y-1'
+                  : ''
               }`}
               onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
               role="button"
@@ -48,8 +48,8 @@ export function Services(): JSX.Element {
                 </svg>
               </div>
 
-              <h3 className="text-lg md:text-xl font-display font-bold text-primary mb-3">{service.title}</h3>
-              <p className="text-gray-600 font-sans text-sm md:text-base">{service.desc}</p>
+              <h3 className="text-lg md:text-xl font-semibold text-primary mb-3">{service.title}</h3>
+              <p className="text-gray-600 font-normal text-sm md:text-base">{service.desc}</p>
 
               {expandedIndex === index && (
                 <motion.div
@@ -65,14 +65,14 @@ export function Services(): JSX.Element {
                         <svg className="w-4 h-4 text-accent mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                        <span className="font-sans text-sm">{bullet}</span>
+                        <span className="font-normal text-sm">{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
               )}
 
-              <div className="mt-4 text-accent text-sm font-medium font-sans flex items-center">
+              <div className="mt-4 text-accent text-sm font-medium font-normal flex items-center">
                 {expandedIndex === index ? (
                   <>
                     <span>Click to collapse</span>

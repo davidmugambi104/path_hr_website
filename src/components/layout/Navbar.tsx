@@ -5,7 +5,7 @@ export function Navbar(): JSX.Element {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -34,14 +34,18 @@ export function Navbar(): JSX.Element {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+        scrolled 
+          ? 'bg-white/90 backdrop-blur-md shadow-md py-2' 
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
+        <div className="flex justify-between items-center">
           <a href="#home" className="flex items-center">
-            <span className="text-xl md:text-2xl font-display font-bold text-primary">
-              BoldPath<span className="text-accent">HR</span>
+            <span className={`text-xl md:text-2xl font-display font-bold ${
+              scrolled ? 'text-primary' : 'text-white'
+            }`}>
+              BoldPath<span className={scrolled ? 'text-accent' : 'text-white'}>HR</span>
             </span>
           </a>
 
@@ -51,66 +55,116 @@ export function Navbar(): JSX.Element {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-sans text-sm font-medium text-primary hover:text-accent transition-colors relative group py-2"
+                className={`font-sans text-sm font-medium transition-colors relative py-2 ${
+                  scrolled 
+                    ? 'text-primary hover:text-accent' 
+                    : 'text-white hover:text-white/80'
+                }`}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 ${
+                  scrolled ? 'bg-accent' : 'bg-white'
+                } group-hover:w-full`} />
               </a>
             ))}
             <a 
               href="#contact" 
-              className="bg-accent text-white px-4 py-2 rounded-lg font-display font-semibold hover:bg-primary transition-colors text-sm"
+              className={`px-4 py-2 rounded-lg font-display font-semibold text-sm transition-all ${
+                scrolled
+                  ? 'bg-accent text-white hover:bg-primary'
+                  : 'bg-white text-primary hover:bg-white/90'
+              }`}
             >
               Get Started
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - Improved responsive design */}
           <button
-            className="md:hidden p-2 rounded-md text-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
           >
             <div className="w-6 h-5 flex flex-col justify-between">
-              <span className={`w-full h-0.5 bg-primary transition-transform duration-300 ${
-                mobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`} />
-              <span className={`w-full h-0.5 bg-primary transition-opacity duration-300 ${
-                mobileMenuOpen ? 'opacity-0' : ''
-              }`} />
-              <span className={`w-full h-0.5 bg-primary transition-transform duration-300 ${
-                mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`} />
+              <span className={`w-full h-0.5 transition-transform duration-300 ${
+                scrolled ? 'bg-primary' : 'bg-white'
+              } ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`w-full h-0.5 transition-opacity duration-300 ${
+                scrolled ? 'bg-primary' : 'bg-white'
+              } ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`w-full h-0.5 transition-transform duration-300 ${
+                scrolled ? 'bg-primary' : 'bg-white'
+              } ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
             </div>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block py-3 font-sans font-medium text-primary hover:text-accent transition-colors rounded-lg px-3 hover:bg-primary/5"
+      {/* Mobile Menu Overlay - Fixed responsiveness issues */}
+      <div 
+        className={`fixed inset-0 z-40 transition-all duration-300 md:hidden ${
+          mobileMenuOpen 
+            ? 'opacity-100 visible' 
+            : 'opacity-0 invisible'
+        }`}
+      >
+        {/* Transparent but blurry overlay */}
+        <div 
+          className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        
+        {/* Improved mobile sidebar with better responsiveness */}
+        <div 
+          className={`absolute top-0 right-0 h-full w-full max-w-xs bg-white/90 backdrop-blur-lg shadow-2xl transform transition-transform duration-300 ease-in-out ${
+            mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="flex flex-col h-full pt-6 pb-8">
+            {/* Mobile header with logo and close button */}
+            <div className="flex items-center justify-between px-6 pb-6 mb-4 border-b border-gray-200">
+              <span className="text-xl font-display font-bold text-primary">
+                BoldPath<span className="text-accent">HR</span>
+              </span>
+              <button
+                className="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="flex-1 px-6 overflow-y-auto">
+              <nav className="space-y-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="block py-4 font-sans font-medium text-primary hover:text-accent transition-colors text-lg border-b border-gray-100"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
+            
+            <div className="px-6 pt-4">
+              <a 
+                href="#contact" 
+                className="block w-full bg-accent text-white px-6 py-4 rounded-xl font-display font-semibold text-center hover:bg-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link.name}
+                Get Started
               </a>
-            ))}
-            <a 
-              href="#contact" 
-              className="block w-full bg-accent text-white px-4 py-3 rounded-lg font-display font-semibold text-center hover:bg-primary transition-colors mt-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Get Started
-            </a>
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
