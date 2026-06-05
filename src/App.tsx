@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react';
-import { BorderedNavbar } from './components/layout/BorderedNavbar';
+import { SimplifiedNavbar } from './components/layout/SimplifiedNavbar';
 import { Footer } from './components/layout/Footer';
 import { BackToTop } from './components/ui/BackToTop';
 import { StructuredData } from './components/layout/StructuredData';
 import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { FixedFloatingWhatsApp } from './components/ui/FixedFloatingWhatsApp';
-import { FixedLiveChat } from './components/ui/FixedLiveChat';
+import { FunctionalLiveChat } from './components/ui/FunctionalLiveChat';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Values } from './components/sections/Values';
@@ -42,7 +42,7 @@ function App() {
           </Helmet>
           
           <StructuredData />
-          <BorderedNavbar />
+          <SimplifiedNavbar />
           <main className="flex-grow">
             <Suspense fallback={<LoadingSkeleton />}>
               <Hero />
@@ -68,7 +68,7 @@ function App() {
           <Footer />
           <BackToTop />
           <FixedFloatingWhatsApp />
-          <FixedLiveChat />
+          <FunctionalLiveChat />
         </div>
       </ErrorBoundary>
     </HelmetProvider>
