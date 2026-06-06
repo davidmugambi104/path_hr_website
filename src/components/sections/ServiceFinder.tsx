@@ -92,16 +92,29 @@ export function ServiceFinder(): JSX.Element {
     setRecommendedServices([]);
   };
 
+  const goToContact = () => {
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      // Close any open modals or overlays
+      const chatWindow = document.querySelector('.fixed.bottom-16.right-0');
+      if (chatWindow) {
+        (chatWindow as HTMLElement).style.display = 'none';
+      }
+    }
+  };
+
   if (showResults) {
     return (
       <section className="py-12 md:py-16 lg:py-20 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-primary mb-4 dark:text-white">
-              Recommended <span className="text-accent">Services</span>
+              Your <span className="text-accent">Recommended</span> Solutions
             </h2>
             <p className="text-base text-gray-600 max-w-2xl mx-auto font-normal dark:text-gray-300">
-              Based on your responses, we recommend the following services for your organization
+              Based on your responses, we've identified the perfect HR services for your organization
             </p>
           </div>
 
@@ -112,7 +125,7 @@ export function ServiceFinder(): JSX.Element {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-surface rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all dark:bg-gray-800"
+                className="bg-surface rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
               >
                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent mx-auto mb-4">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,22 +143,22 @@ export function ServiceFinder(): JSX.Element {
           <div className="mt-10 text-center">
             <button
               onClick={resetFinder}
-              className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 transition-colors mr-4 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 transition-colors mr-4 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-600"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
-              Start Over
+              Retake Quiz
             </button>
-            <a
-              href="#contact"
+            <button
+              onClick={goToContact}
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-primary transition-colors"
             >
-              Contact Us
+              Schedule Consultation
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -168,7 +181,7 @@ export function ServiceFinder(): JSX.Element {
           {/* Progress bar */}
           <div className="mb-8">
             <div className="flex justify-between text-sm text-gray-500 mb-2 dark:text-gray-400">
-              <span>Step {currentStep + 1} of {serviceFinderQuestions.length}</span>
+              <span>Question {currentStep + 1} of {serviceFinderQuestions.length}</span>
               <span>{Math.round(((currentStep + 1) / serviceFinderQuestions.length) * 100)}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-600">
@@ -198,7 +211,7 @@ export function ServiceFinder(): JSX.Element {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   onClick={() => handleAnswer(option.value)}
-                  className="w-full text-left p-4 rounded-xl border border-gray-200 hover:border-accent hover:bg-accent/5 transition-all focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:border-gray-600 dark:hover:border-accent dark:hover:bg-accent/10"
+                  className="w-full text-left p-4 rounded-xl border border-gray-200 hover:border-accent hover:bg-accent/5 transition-all focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:border-gray-600 dark:hover:border-accent dark:hover:bg-accent/10 dark:bg-gray-600"
                 >
                   <div className="flex items-center">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mr-4 dark:border-gray-500">

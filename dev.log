@@ -244,3 +244,9 @@ Port 3002 is in use, trying another one...
 11:49:35 PM [vite] hmr update /src/components/layout/Navbar.tsx, /src/styles/globals.css
 11:49:42 PM [vite] hmr update /src/components/layout/FixedBorderedNavbar.tsx, /src/styles/globals.css
 12:05:03 AM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+12:12:46 AM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+12:13:34 AM [vite] hmr update /src/components/layout/SimplifiedNavbar.tsx, /src/styles/globals.css
+12:17:48 AM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+12:18:23 AM [vite] hmr update /src/components/layout/FixedSimplifiedNavbar.tsx, /src/styles/globals.css
+12:41:17 AM [vite] hmr update /src/App.tsx, /src/styles/globals.css
+12:42:20 AM [vite] hmr update /src/components/layout/RobustMobileNavbar.tsx, /src/styles/globals.css

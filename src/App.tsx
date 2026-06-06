@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { SimplifiedNavbar } from './components/layout/SimplifiedNavbar';
+import { WorkingNavbar } from './components/layout/WorkingNavbar';
 import { Footer } from './components/layout/Footer';
 import { BackToTop } from './components/ui/BackToTop';
 import { StructuredData } from './components/layout/StructuredData';
@@ -42,7 +42,7 @@ function App() {
           </Helmet>
           
           <StructuredData />
-          <SimplifiedNavbar />
+          <WorkingNavbar />
           <main className="flex-grow">
             <Suspense fallback={<LoadingSkeleton />}>
               <Hero />
