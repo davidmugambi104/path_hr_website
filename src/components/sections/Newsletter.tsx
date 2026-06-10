@@ -72,7 +72,7 @@ export function Newsletter(): JSX.Element {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-accent text-white px-6 py-3 rounded-xl font-display font-semibold hover:bg-primary transition-colors disabled:opacity-50 whitespace-nowrap"
+                      className="bg-accent text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary transition-colors disabled:opacity-50 whitespace-nowrap"
                     >
                       {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                     </button>

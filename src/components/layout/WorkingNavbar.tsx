@@ -88,13 +88,11 @@ export function WorkingNavbar(): JSX.Element {
                 <a 
                   href="/#contact" 
                   onClick={handleLinkClick}
-                  className={`px-4 py-2 rounded-lg font-display font-semibold text-sm transition-all ${
-                    scrolled || isSticky
-                      ? 'bg-accent text-white hover:bg-primary dark:bg-accent dark:hover:bg-primary'
-                      : 'bg-white text-primary hover:bg-white/90'
-                  }`}
+                  className="px-4 py-2 rounded-lg text-sm font-semibold transition-all relative overflow-hidden group"
                 >
-                  Get Started
+                  <span className="absolute inset-0 bg-primary transition-all duration-300 group-hover:opacity-0"></span>
+                  <span className="absolute inset-0 bg-accent transform translate-x-full group-hover:translate-x-0 transition-all duration-300"></span>
+                  <span className="relative z-10 text-white transition-colors duration-300">Get Started</span>
                 </a>
               </div>
             </div>
@@ -176,9 +174,11 @@ export function WorkingNavbar(): JSX.Element {
                   <a 
                     href="/#contact" 
                     onClick={handleLinkClick}
-                    className="w-full bg-accent text-white text-center px-4 py-3 rounded-lg font-semibold hover:bg-primary transition-colors"
+                    className="w-full px-4 py-3 rounded-lg font-semibold transition-all relative overflow-hidden group"
                   >
-                    Get Started
+                    <span className="absolute inset-0 bg-primary transition-all duration-300 group-hover:opacity-0"></span>
+                    <span className="absolute inset-0 bg-accent transform translate-x-full group-hover:translate-x-0 transition-all duration-300"></span>
+                    <span className="relative z-10 text-white transition-colors duration-300">Get Started</span>
                   </a>
                 </div>
               </div>

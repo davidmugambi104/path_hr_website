@@ -159,15 +159,19 @@ export function Hero(): JSX.Element {
         >
           <a 
             href="#services" 
-            className="bg-accent text-primary px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-lg md:text-xl hover:bg-primaryLight hover:text-white transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary"
+            className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-lg md:text-xl transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary relative overflow-hidden group"
           >
-            Our Services
+            <span className="absolute inset-0 bg-primaryLight transition-all duration-300 group-hover:opacity-0"></span>
+            <span className="absolute inset-0 bg-accent transform translate-x-full group-hover:translate-x-0 transition-all duration-300"></span>
+            <span className="relative z-10 text-primary group-hover:text-white transition-colors duration-300">Our Services</span>
           </a>
           <a 
             href="#contact" 
-            className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-lg md:text-xl border-2 border-accent text-white hover:bg-accent hover:text-primary transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary"
+            className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-lg md:text-xl border-2 border-accent transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary relative overflow-hidden group"
           >
-            Contact Us
+            <span className="absolute inset-0 bg-transparent border-2 border-accent transition-all duration-300 group-hover:opacity-0"></span>
+            <span className="absolute inset-0 bg-accent transform translate-x-full group-hover:translate-x-0 transition-all duration-300"></span>
+            <span className="relative z-10 text-white group-hover:text-primary transition-colors duration-300">Contact Us</span>
           </a>
         </motion.div>
 
