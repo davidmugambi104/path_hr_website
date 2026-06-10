@@ -37,24 +37,24 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
-  font-size: 2.5rem; /* Further reduced size for better fit */
+  font-size: 2rem; /* Reduced size to be less shouting */
 }
 
 @media (min-width: 640px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.25rem;
   }
 }
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 
@@ -62,24 +62,24 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   letter-spacing: 0;
-  font-size: 1.125rem; /* Further reduced size */
+  font-size: 1rem; /* Reduced size to be less shouting */
 }
 
 @media (min-width: 640px) {
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }
 
 @media (min-width: 768px) {
   .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-subtitle {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 

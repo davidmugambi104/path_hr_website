@@ -300,7 +300,7 @@ export function WhatsAppContact(): JSX.Element {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent text-white px-4 py-3 md:px-6 md:py-4 rounded-xl font-display font-semibold hover:bg-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-lg flex items-center justify-center"
+                  className="w-full bg-accent text-white px-4 py-3 md:px-6 md:py-4 rounded-xl font-semibold hover:bg-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base md:text-lg flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center">

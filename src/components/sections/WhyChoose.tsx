@@ -6,7 +6,7 @@ export function WhyChoose(): JSX.Element {
     <section id="why-choose" className="py-16 md:py-20 lg:py-24 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Why Choose <span className="text-accent">BoldPath HR</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto font-sans">

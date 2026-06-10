@@ -13,7 +13,7 @@ export function About(): JSX.Element {
             transition={{ duration: 0.5 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-normal text-primary mb-4 md:mb-6 tracking-wider">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-4 md:mb-6 tracking-wider">
               About <span className="text-accent">Us</span>
             </h2>
             
