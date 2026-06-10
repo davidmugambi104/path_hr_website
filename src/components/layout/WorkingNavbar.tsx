@@ -59,7 +59,7 @@ export function WorkingNavbar(): JSX.Element {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <a href="/" className="flex items-center">
-              <span className={`text-xl md:text-2xl font-display font-bold ${
+              <span className={`text-xl md:text-2xl font-bold ${
                 scrolled || isSticky ? 'text-primary dark:text-white' : 'text-white'
               }`}>
                 BoldPath<span className={scrolled || isSticky ? 'text-accent dark:text-accent' : 'text-accent'}>HR</span>
@@ -137,7 +137,7 @@ export function WorkingNavbar(): JSX.Element {
               <div className="flex flex-col h-full">
                 {/* Header with close button */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-                  <span className="text-xl font-display font-bold text-primary dark:text-white">
+                  <span className="text-xl font-bold text-primary dark:text-white">
                     BoldPath<span className="text-accent">HR</span>
                   </span>
                   <button
@@ -176,7 +176,7 @@ export function WorkingNavbar(): JSX.Element {
                   <a 
                     href="/#contact" 
                     onClick={handleLinkClick}
-                    className="w-full bg-accent text-white text-center px-4 py-3 rounded-lg font-display font-semibold hover:bg-primary transition-colors"
+                    className="w-full bg-accent text-white text-center px-4 py-3 rounded-lg font-semibold hover:bg-primary transition-colors"
                   >
                     Get Started
                   </a>

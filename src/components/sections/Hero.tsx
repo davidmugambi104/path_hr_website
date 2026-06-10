@@ -116,12 +116,12 @@ export function Hero(): JSX.Element {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-24"
     >
-      {/* Original gradient background */}
+      {/* Updated gradient background with romantic blue and gold tones */}
       <div 
         className="absolute inset-0 w-full h-full"
-        style={{ background: 'linear-gradient(135deg, #0B2B40 0%, #1a4a6e 50%, #0B2B40 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0B2B40 0%, #4169E1 50%, #FFD700 100%)' }}
       />
       
       {/* Crisp line-based triangle particles */}
@@ -130,13 +130,13 @@ export function Hero(): JSX.Element {
       {/* Glass overlay */}
       <div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-8 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 tracking-wider">
+          <h1 className="hero-title text-white mb-6 tracking-wider mt-4">
             <span className="block">{company.name.split(' & ')[0]}</span>
             <span className="block text-accent mt-2">{company.name.split(' & ')[1]}</span>
           </h1>
@@ -146,7 +146,7 @@ export function Hero(): JSX.Element {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-normal max-w-3xl mx-auto mb-8 md:mb-10"
+          className="text-white/90 font-normal max-w-3xl mx-auto mb-8 md:mb-10 hero-subtitle"
         >
           {company.tagline}
         </motion.p>
@@ -159,13 +159,13 @@ export function Hero(): JSX.Element {
         >
           <a 
             href="#services" 
-            className="bg-accent text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-display font-semibold text-base md:text-lg hover:bg-primary transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary"
+            className="bg-accent text-primary px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-lg md:text-xl hover:bg-primaryLight hover:text-white transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary"
           >
             Our Services
           </a>
           <a 
             href="#contact" 
-            className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-display font-semibold text-base md:text-lg border-2 border-white/30 text-white hover:bg-white/10 transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-primary"
+            className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold text-lg md:text-xl border-2 border-accent text-white hover:bg-accent hover:text-primary transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary"
           >
             Contact Us
           </a>
@@ -190,8 +190,8 @@ export function Hero(): JSX.Element {
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
               className="text-center"
             >
-              <div className="text-2xl md:text-3xl lg:text-4xl font-normal text-accent mb-1">{stat.value}</div>
-              <div className="text-white/70 font-normal text-xs sm:text-sm">{stat.label}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-accent mb-1">{stat.value}</div>
+              <div className="text-white font-normal text-sm">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

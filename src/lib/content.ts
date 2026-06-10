@@ -48,7 +48,7 @@ export const company = {
     'FinTech Solutions Ltd'
   ],
   contact: { 
-    email: 'info@boldpathhrandbusinesssolutions.co.ke', 
+    email: 'info@boldpath.co.ke', 
     phone: '0795959416', 
     location: 'Nairobi, Kenya' 
   }

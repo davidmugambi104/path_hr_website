@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0B2B40',
-        primaryLight: '#1a4a6e',
-        accent: '#C4452C',
-        surface: '#E9EBEC',
+        primary: '#0B2B40', // Deep blue
+        primaryLight: '#4169E1', // Royal blue
+        accent: '#FFD700', // Gold
+        surface: '#FFFFFF', // White
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
+        display: ['Great Vibes', 'cursive'],
       },
     },
   },
