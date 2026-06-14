@@ -48,8 +48,8 @@ export const company = {
     'FinTech Solutions Ltd'
   ],
   contact: { 
-    email: 'info@boldpath.co.ke', 
-    phone: '0795959416', 
+    email: 'info@boldhrsolutions.com', 
+    phone: '0790774393', 
     location: 'Nairobi, Kenya' 
   }
 };

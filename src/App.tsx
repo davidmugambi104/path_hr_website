@@ -7,6 +7,7 @@ import { LoadingSkeleton } from './components/ui/LoadingSkeleton';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { FixedFloatingWhatsApp } from './components/ui/FixedFloatingWhatsApp';
 import { FunctionalLiveChat } from './components/ui/FunctionalLiveChat';
+import { TrainingCalendar } from './components/sections/TrainingCalendar';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Values } from './components/sections/Values';
@@ -55,6 +56,7 @@ function App() {
               <WhyChoose />
               <Certifications />
               <Team />
+              <TrainingCalendar />
               <ClientLogos />
               <Testimonials />
               <CaseStudies />

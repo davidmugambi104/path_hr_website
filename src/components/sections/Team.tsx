@@ -7,32 +7,32 @@ const teamMembers = [
     name: 'Wambui Njoroge', 
     role: 'Managing Director', 
     image: '', 
-    bio: '20+ years in HR strategy and organizational development. Expert in change management and leadership development.',
-    expertise: ['Strategic HR', 'Change Management', 'Leadership Development'],
+    bio: '20+ years in HR strategy and organizational development. Leads strategic HR transformations and governance initiatives across East Africa.',
+    expertise: ['Strategic HR Management', 'HR Leadership & Governance', 'Change Management', 'Organizational Development', 'HR Analytics'],
     linkedin: '#'
   },
   { 
     name: 'David Mugambi', 
     role: 'HR Director', 
     image: '', 
-    bio: 'Specializes in talent acquisition and employee relations. Certified HR Professional with focus on African markets.',
-    expertise: ['Talent Acquisition', 'Employee Relations', 'Performance Management'],
+    bio: 'Certified HR Professional specializing in talent management, employee relations, and performance optimization. Expert in Kenyan labour laws.',
+    expertise: ['Talent Acquisition & Selection', 'Employee Relations', 'Performance Management (OKR)', 'Compensation & Benefits', 'Labour Laws Compliance'],
     linkedin: '#'
   },
   { 
     name: 'Grace Wanjiku', 
     role: 'Senior Consultant', 
     image: '', 
-    bio: 'Focus on training and development programs. Expert in designing customized learning solutions for diverse organizations.',
-    expertise: ['Training & Development', 'Skills Assessment', 'E-Learning'],
+    bio: 'Training and development specialist with expertise in designing customized learning solutions for diverse organizations across multiple sectors.',
+    expertise: ['Training & Development Programs', 'Employee Engagement', 'Wellness & Stress Management', 'Skills Assessment', 'E-Learning Solutions'],
     linkedin: '#'
   },
   { 
     name: 'Joseph Otieno', 
     role: 'Training Lead', 
     image: '', 
-    bio: 'Instructional design specialist with expertise in adult learning principles and digital training platforms.',
-    expertise: ['Instructional Design', 'Digital Learning', 'Workshop Facilitation'],
+    bio: 'Instructional design expert specializing in adult learning, digital training platforms, and facilitation of technical HR and business programs.',
+    expertise: ['Instructional Design', 'HR Information Systems', 'Records Management', 'Digital Learning Platforms', 'Workshop Facilitation'],
     linkedin: '#'
   }
 ];
